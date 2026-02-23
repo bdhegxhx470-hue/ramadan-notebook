@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>রমজান আত্মশুদ্ধি নোটবুক ১৪৪৬</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700;800&family=Noto+Serif+Bengali:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+/* ══════════════════════════════════════
+   ROOT VARIABLES
+══════════════════════════════════════ */
+:root {
+  /* Ramadan palette — deep teal/emerald night sky */
+  --bg:          #f5f3ee;
+  --bg2:         #ede9e0;
+  --paper:       #faf8f3;
+  --paper2:      #f0ece2;
+  --ink:         #1c1a14;
+  --ink-soft:    #4a4535;
+  --ink-muted:   #8a8272;
+  --ink-faint:   #b8b09e;
+
+  --teal:        #1a6b5a;
+  --teal-soft:   #2d8a72;
+  --teal-glow:   rgba(26,107,90,.12);
+  --teal-light:  #e8f5f1;
+
+  --gold:        #b8860b;
+  --gold-soft:   #d4a017;
+  --gold-bg:     #fdf6e3;
+  --gold-border: rgba(184,134,11,.25);
+
+  --red:         #8b1a1a;
+  --red-soft:    #a52020;
+  --red-bg:      #fdf0ee;
+  --red-border:  rgba(139,26,26,.2);
+
+  --night:       #0e1a14;
+  --night2:      #152010;
+  --star:        #d4a017;
+
+  --border:      rgba(0,0,0,.08);
+  --border2:     rgba(0,0,0,.12);
+
+  --radius-sm:   8px;
+  --radius:      14px;
+  --radius-lg:   20px;
+
+  --shadow-sm:   0 1px 4px rgba(0,0,0,.07);
+  --shadow:      0 3px 12px rgba(0,0,0,.09);
+  --shadow-lg:   0 8px 28px rgba(0,0,0,.11);
+}
+
+/* ══════════════════════════════════════
+   BASE
+══════════════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  font-family: 'Noto Sans Bengali', sans-serif;
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  /* subtle paper texture via repeating gradient */
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 27px,
+      rgba(0,0,0,.025) 27px,
+      rgba(0,0,0,.025) 28px
+    );
+  background-size: 100% 28px;
+}
+
+/* ══════════════════════════════════════
+   SCROLL PROGRESS
+══════════════════════════════════════ */
+#progress-bar {
+  position: fixed; top: 0; left: 0;
+  height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--teal), var(--gold-soft));
+  z-index: 999;
+  transition: width .1s linear;
+}
+
+/* ══════════════════════════════════════
+   NAV — notebook tab style
+══════════════════════════════════════ */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(245,243,238,.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 2px solid var(--border2);
+  box-shadow: var(--shadow-sm);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 760px; margin: 0 auto; padding: 12px 20px;
+}
+.nav-logo {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 16px; font-weight: 800; color: var(--teal);
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-logo .crescent { font-size: 18px; }
+.nav-tabs { display: flex; gap: 3px; list-style: none; }
+.nav-tabs a {
+  display: block; color: var(--ink-muted);
+  text-decoration: none; font-size: 11.5px; font-weight: 600;
+  padding: 6px 13px; border-radius: var(--radius-sm);
+  transition: all .2s; border: 1px solid transparent;
+}
+.nav-tabs a:hover { background: var(--teal-light); color: var(--teal); }
+.nav-tabs a.active {
+  background: var(--teal); color: #fff;
+  border-color: var(--teal-soft);
+  box-shadow: 0 2px 8px rgba(26,107,90,.25);
+}
+
+/* ══════════════════════════════════════
+   HERO — night sky notebook cover
+══════════════════════════════════════ */
+.cover {
+  position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #071510 0%, var(--night2) 50%, #0a1e18 100%);
+  padding: 64px 20px 56px; text-align: center;
+}
+.cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 10%, rgba(45,138,114,.18) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 15% 80%, rgba(212,160,23,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 30% at 85% 30%, rgba(26,107,90,.1) 0%, transparent 60%);
+}
+/* stars */
+.cover::after {
+  content: '✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦';
+  position: absolute; top: 18px; left: 50%;
+  transform: translateX(-50%);
+  color: rgba(212,160,23,.35); font-size: 11px; letter-spacing: 12px;
+  white-space: nowrap; pointer-events: none;
+}
+.cover-moon {
+  font-size: 52px; margin-bottom: 12px; position: relative;
+  animation: moonFloat 4s ease-in-out infinite;
+}
+.cover-eyebrow {
+  display: inline-block;
+  background: rgba(212,160,23,.12);
+  border: 1px solid rgba(212,160,23,.3);
+  color: #d4a017; font-size: 11px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 5px 16px; border-radius: 30px;
+  margin-bottom: 16px; position: relative;
+  animation: fadeUp .6s ease both;
+}
+.cover h1 {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: clamp(24px, 6vw, 38px); font-weight: 800;
+  color: #fff; line-height: 1.3; margin-bottom: 10px;
+  position: relative; animation: fadeUp .7s .1s ease both;
+}
+.cover h1 span { color: #d4a017; }
+.cover-sub {
+  color: rgba(255,255,255,.55); font-size: 13.5px;
+  margin-bottom: 28px; position: relative;
+  animation: fadeUp .7s .2s ease both;
+}
+.cover-badges {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+  position: relative; animation: fadeUp .7s .3s ease both;
+}
+.cover-badge {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.7);
+  font-size: 12px; padding: 5px 14px; border-radius: 20px;
+}
+
+/* Arabic ayah display */
+.cover-ayah {
+  position: relative; margin: 28px auto 0; max-width: 480px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(212,160,23,.2);
+  border-radius: var(--radius); padding: 18px 22px;
+  animation: fadeUp .7s .4s ease both;
+}
+.ayah-arabic {
+  font-size: 19px; color: #d4a017; line-height: 2;
+  text-align: center; margin-bottom: 8px;
+  font-family: serif;
+}
+.ayah-bn {
+  font-size: 12px; color: rgba(255,255,255,.5);
+  text-align: center; line-height: 1.7;
+}
+
+/* ══════════════════════════════════════
+   NOTEBOOK DIVIDER
+══════════════════════════════════════ */
+.nb-divider {
+  height: 8px;
+  background: linear-gradient(to right,
+    var(--teal) 0%, var(--teal-soft) 40%, var(--gold-soft) 60%, var(--gold) 100%);
+}
+
+/* ══════════════════════════════════════
+   SECTION WRAPPER
+══════════════════════════════════════ */
+.nb-section {
+  max-width: 760px; margin: 0 auto; padding: 40px 20px 20px;
+}
+.section-head {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 28px;
+}
+.section-head .sh-line { flex: 1; height: 1px; background: var(--border2); }
+.section-head .sh-label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-muted);
+}
+.section-head .sh-icon {
+  width: 28px; height: 28px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════
+   SPECIAL NOTE BOX — eye guard / itikaf
+══════════════════════════════════════ */
+.special-note {
+  background: var(--gold-bg);
+  border: 1.5px solid var(--gold-border);
+  border-left: 4px solid var(--gold-soft);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.special-note .sn-head {
+  display: flex; align-items: center; gap: 9px;
+  margin-bottom: 10px;
+}
+.special-note .sn-icon { font-size: 20px; }
+.special-note .sn-title {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 14.5px; font-weight: 700; color: var(--gold);
+}
+.special-note p {
+  font-size: 13px; color: var(--ink-soft); line-height: 1.85;
+}
+.special-note ul {
+  margin-top: 10px; padding-left: 2px;
+  list-style: none; display: flex; flex-direction: column; gap: 6px;
+}
+.special-note ul li {
+  font-size: 12.5px; color: var(--ink-soft); line-height: 1.7;
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.special-note ul li::before { content: '→'; color: var(--gold-soft); flex-shrink: 0; }
+
+/* Teal variant */
+.special-note.teal {
+  background: var(--teal-light);
+  border-color: rgba(26,107,90,.2);
+  border-left-color: var(--teal-soft);
+}
+.special-note.teal .sn-title { color: var(--teal); }
+.special-note.teal ul li::before { color: var(--teal-soft); }
+
+/* ══════════════════════════════════════
+   TIMELINE — ramadan schedule
+══════════════════════════════════════ */
+.timeline {
+  position: relative;
+}
+/* Vertical spine */
+.timeline::before {
+  content: ''; position: absolute;
+  left: 72px; top: 24px; bottom: 24px; width: 1px;
+  background: linear-gradient(to bottom,
+    rgba(26,107,90,.3) 0%, rgba(26,107,90,.1) 60%, transparent 100%);
+}
+
+.t-row {
+  display: grid;
+  grid-template-columns: 66px 20px 1fr;
+  align-items: flex-start;
+  margin-bottom: 4px;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.t-row.visible { opacity: 1; transform: translateX(0); }
+
+.t-time {
+  text-align: right; padding-top: 18px; padding-right: 8px;
+}
+.t-time-label {
+  font-size: 10px; font-weight: 700; color: var(--ink-muted); line-height: 1.4;
+}
+.t-dot-col {
+  display: flex; flex-direction: column; align-items: center; padding-top: 21px;
+}
+.t-dot {
+  width: 11px; height: 11px; border-radius: 50%;
+  border: 2px solid var(--bg);
+  position: relative; z-index: 1; flex-shrink: 0;
+}
+.t-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--c, var(--teal));
+  border-radius: var(--radius);
+  padding: 15px 17px;
+  margin: 5px 0 16px 14px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s, box-shadow .2s;
+  position: relative; overflow: hidden;
+}
+.t-card::after {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 70px; height: 70px;
+  background: radial-gradient(circle at top right, var(--c-bg, rgba(26,107,90,.05)), transparent 70%);
+  pointer-events: none;
+}
+.t-card:hover { transform: translateX(3px); box-shadow: var(--shadow); }
+.t-activity {
+  font-size: 14px; font-weight: 700; color: var(--ink);
+  margin-bottom: 5px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.t-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--c, var(--teal));
+  background: var(--c-bg, rgba(26,107,90,.08));
+  border: 1px solid var(--c-border, rgba(26,107,90,.18));
+  padding: 2px 8px; border-radius: 10px;
+}
+.t-reason { font-size: 12.5px; color: var(--ink-soft); line-height: 1.75; }
+.t-hadith {
+  margin-top: 8px; padding: 8px 12px;
+  background: var(--gold-bg); border-left: 2px solid var(--gold-soft);
+  border-radius: 6px; font-size: 11.5px; color: var(--gold);
+  line-height: 1.7; font-style: italic;
+}
+
+/* dot + card color sets */
+.cv-sehri  { --c:#1a6b5a; --c-bg:rgba(26,107,90,.06); --c-border:rgba(26,107,90,.15); }
+.cv-fajr   { --c:#2d8a72; --c-bg:rgba(45,138,114,.06); --c-border:rgba(45,138,114,.15); }
+.cv-quran  { --c:#b8860b; --c-bg:rgba(184,134,11,.06); --c-border:rgba(184,134,11,.15); }
+.cv-work   { --c:#4a7c59; --c-bg:rgba(74,124,89,.06); --c-border:rgba(74,124,89,.15); }
+.cv-asr    { --c:#6d8c3e; --c-bg:rgba(109,140,62,.06); --c-border:rgba(109,140,62,.15); }
+.cv-iftar  { --c:#c47c1a; --c-bg:rgba(196,124,26,.06); --c-border:rgba(196,124,26,.15); }
+.cv-isha   { --c:#1a5a7a; --c-bg:rgba(26,90,122,.06); --c-border:rgba(26,90,122,.15); }
+.cv-taraw  { --c:#4a2d82; --c-bg:rgba(74,45,130,.06); --c-border:rgba(74,45,130,.15); }
+.cv-tahajj { --c:#8b1a1a; --c-bg:rgba(139,26,26,.06); --c-border:rgba(139,26,26,.15); }
+
+/* ══════════════════════════════════════
+   AMAL CARDS — Islamic tips grid
+══════════════════════════════════════ */
+.amal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px; margin-top: 4px;
+}
+.amal-card {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 16px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s, box-shadow .2s;
+  opacity: 0; transform: translateY(10px);
+  transition: opacity .5s ease, transform .5s ease, box-shadow .2s;
+}
+.amal-card.visible { opacity: 1; transform: translateY(0); }
+.amal-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.amal-card .ac-icon { font-size: 26px; margin-bottom: 10px; }
+.amal-card h4 {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 13.5px; font-weight: 700; color: var(--teal);
+  margin-bottom: 7px;
+}
+.amal-card p { font-size: 12px; color: var(--ink-soft); line-height: 1.8; }
+
+/* ══════════════════════════════════════
+   PAGE DIVIDER BETWEEN SECTIONS
+══════════════════════════════════════ */
+.page-break {
+  position: relative; text-align: center;
+  margin: 16px 0; padding: 8px 0;
+  background: var(--bg2);
+  border-top: 1px dashed var(--border2);
+  border-bottom: 1px dashed var(--border2);
+}
+.page-break span {
+  font-size: 11px; color: var(--ink-faint); letter-spacing: .15em; text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════
+   WARNING SECTION HERO
+══════════════════════════════════════ */
+.w-cover {
+  position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #2a0505 0%, #5a0a0a 55%, #8b1a1a 100%);
+  padding: 56px 20px 48px; text-align: center;
+}
+.w-cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(200,50,50,.2) 0%, transparent 65%);
+}
+.w-eyebrow {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+  color: #fff; font-size: 11px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: 5px 16px; border-radius: 30px;
+  margin-bottom: 16px; position: relative;
+}
+.w-cover h2 {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: clamp(20px, 5vw, 32px); font-weight: 800;
+  color: #fff; line-height: 1.35; margin-bottom: 18px; position: relative;
+}
+.w-alert-box {
+  max-width: 500px; margin: 0 auto;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--radius); padding: 16px 20px;
+  color: rgba(255,255,255,.78); font-size: 13.5px; line-height: 1.85;
+  position: relative;
+}
+.w-alert-box strong { color: #FFD700; }
+
+/* ══════════════════════════════════════
+   WARNING CARDS
+══════════════════════════════════════ */
+.w-grid { display: flex; flex-direction: column; gap: 11px; }
+
+.w-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  display: flex; gap: 14px; align-items: flex-start;
+  position: relative; overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  opacity: 0; transform: translateY(10px);
+  transition: opacity .5s ease, transform .5s ease, box-shadow .2s, border-color .2s;
+}
+.w-card.visible { opacity: 1; transform: translateY(0); }
+.w-card:hover { box-shadow: var(--shadow); border-color: var(--red-border); }
+.w-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--red), var(--red-soft));
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.w-num {
+  flex-shrink: 0; width: 36px; height: 36px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--red), var(--red-soft));
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800;
+  box-shadow: 0 2px 8px rgba(139,26,26,.3);
+  position: relative; z-index: 1;
+}
+.w-content-inner { flex: 1; }
+.w-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.w-desc { font-size: 12.5px; color: var(--ink-soft); line-height: 1.8; }
+.w-desc em { color: var(--red); font-style: normal; font-weight: 600; }
+/* Islamic reference badge */
+.w-ref {
+  display: inline-block; margin-top: 8px;
+  background: var(--gold-bg); border: 1px solid var(--gold-border);
+  border-radius: 6px; padding: 5px 10px;
+  font-size: 11px; color: var(--gold); line-height: 1.6;
+}
+
+/* ══════════════════════════════════════
+   COLLAPSE
+══════════════════════════════════════ */
+.collapse-wrap { max-width: 760px; margin: 0 auto; padding: 4px 20px 0; }
+.collapse-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--red) 0%, var(--red-soft) 100%);
+  color: #fff; border: none; border-radius: var(--radius-sm);
+  padding: 14px 20px; font-size: 13.5px; font-weight: 700;
+  font-family: 'Noto Sans Bengali', sans-serif;
+  cursor: pointer; margin-bottom: 12px;
+  box-shadow: 0 3px 12px rgba(139,26,26,.3);
+  transition: opacity .2s, transform .1s;
+}
+.collapse-btn:hover { opacity: .9; }
+.collapse-btn:active { transform: scale(.98); }
+.arrow-icon { font-size: 11px; transition: transform .3s; display: inline-block; }
+.collapse-btn.open .arrow-icon { transform: rotate(180deg); }
+.extra-cards { display: none; }
+.extra-cards.open { display: flex; flex-direction: column; gap: 11px; }
+
+/* ══════════════════════════════════════
+   PLEDGE — notebook closing page
+══════════════════════════════════════ */
+.pledge-section { max-width: 760px; margin: 0 auto; padding: 32px 20px 48px; }
+
+.pledge-box {
+  background: var(--night);
+  border: 2px solid rgba(212,160,23,.3);
+  border-radius: var(--radius-lg); padding: 36px 24px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.pledge-box::before {
+  content: '';
+  position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+  width: 300px; height: 200px;
+  background: radial-gradient(ellipse, rgba(26,107,90,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.pledge-box::after {
+  content: '✦ ✦ ✦';
+  position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
+  color: rgba(212,160,23,.3); font-size: 12px; letter-spacing: 14px;
+}
+.pledge-dua {
+  font-size: 18px; color: #d4a017; line-height: 2;
+  font-family: serif; margin-bottom: 8px; position: relative;
+}
+.pledge-dua-bn {
+  font-size: 12px; color: rgba(255,255,255,.4);
+  margin-bottom: 24px; position: relative;
+}
+.pledge-icon { font-size: 32px; margin-bottom: 10px; position: relative; }
+.pledge-title {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 19px; font-weight: 800; color: #d4a017;
+  margin-bottom: 8px; position: relative;
+}
+.pledge-line { width: 40px; height: 2px; background: #d4a017; margin: 0 auto 20px; border-radius: 2px; opacity: .45; }
+.pledge-text {
+  color: rgba(255,255,255,.7); font-size: 14px; line-height: 2.05;
+  font-style: italic; margin-bottom: 28px; position: relative;
+}
+.pledge-text strong { color: #d4a017; font-style: normal; }
+
+.cta-btn {
+  display: block; width: 100%;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-soft) 100%);
+  color: #fff; border: none; border-radius: var(--radius);
+  padding: 16px 20px; font-size: 15px; font-weight: 800;
+  font-family: 'Noto Sans Bengali', sans-serif; cursor: pointer;
+  box-shadow: 0 5px 18px rgba(26,107,90,.4);
+  transition: transform .15s, box-shadow .15s;
+  position: relative;
+}
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 9px 26px rgba(26,107,90,.45); }
+.cta-btn:active { transform: scale(.97); }
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer {
+  background: var(--night);
+  border-top: 3px solid rgba(212,160,23,.2);
+  padding: 28px 20px; text-align: center;
+}
+footer p { color: rgba(255,255,255,.35); font-size: 11.5px; line-height: 1.9; }
+footer strong { color: rgba(212,160,23,.6); }
+
+/* ══════════════════════════════════════
+   SECTION BG ALTERNATION
+══════════════════════════════════════ */
+.bg-alt { background: var(--bg2); }
+
+/* ══════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes moonFloat {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-8px); }
+}
+@keyframes dotPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(26,107,90,.4); }
+  50%     { box-shadow: 0 0 0 5px rgba(26,107,90,0); }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 520px) {
+  .nav-tabs { display: none; }
+  .cover, .w-cover { padding: 48px 16px 40px; }
+  .nb-section { padding: 28px 14px 16px; }
+  .collapse-wrap { padding: 0 14px; }
+  .pledge-section { padding: 24px 14px 40px; }
+  .amal-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><span class="crescent">🌙</span> রমজান নোটবুক ১৪৪৬</div>
+    <ul class="nav-tabs">
+      <li><a href="#routine" class="active">রুটিন</a></li>
+      <li><a href="#amal">আমল</a></li>
+      <li><a href="#warning">সতর্কতা</a></li>
+      <li><a href="#pledge">মুনাজাত</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     COVER PAGE
+══════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-moon">🌙</div>
+  <div class="cover-eyebrow">রমজান স্পেশাল আত্মশুদ্ধি গাইড ১৪৪৬</div>
+  <h1>পবিত্র <span>রমজানের</span><br>৩০ দিনের সংকল্প</h1>
+  <p class="cover-sub">রোজা, তিলাওয়াত, তাহাজ্জুদ ও আত্মশুদ্ধির নোটবুক</p>
+  <div class="cover-badges">
+    <span class="cover-badge">🕌 নামাজ</span>
+    <span class="cover-badge">📖 কুরআন</span>
+    <span class="cover-badge">🤲 দোয়া</span>
+    <span class="cover-badge">👁️ দৃষ্টির হিফাজত</span>
+    <span class="cover-badge">🛡️ আত্মশুদ্ধি</span>
+  </div>
+  <div class="cover-ayah">
+    <div class="ayah-arabic">شَهۡرُ رَمَضَانَ ٱلَّذِیۤ أُنزِلَ فِیهِ ٱلۡقُرۡءَانُ</div>
+    <div class="ayah-bn">"রমজান মাস — যাতে কুরআন নাজিল হয়েছে, মানুষের জন্য হেদায়াত হিসেবে।"<br>— সূরা আল-বাকারাহ, আয়াত ১৮৫</div>
+  </div>
+</div>
+
+<div class="nb-divider"></div>
+
+<!-- ══════════════════════════════════════
+     ROUTINE SECTION
+══════════════════════════════════════ -->
+<section id="routine">
+<div class="nb-section">
+
+  <div class="section-head">
+    <div class="sh-line"></div>
+    <div class="sh-label">
+      <span class="sh-icon" style="background:rgba(26,107,90,.1);">🕐</span>
+      রমজানের দৈনিক রুটিন
+    </div>
+    <div class="sh-line"></div>
+  </div>
+
+  <!-- Eye Guard Note -->
+  <div class="special-note teal" style="margin-bottom:22px;">
+    <div class="sn-head">
+      <span class="sn-icon">👁️</span>
+      <span class="sn-title">রোজা অবস্থায় কুচিন্তা থেকে বাঁচার টিপস</span>
+    </div>
+    <p>রোজা রাখা অবস্থায় মনের দুর্বলতা বেশি অনুভব হতে পারে। রাসূলুল্লাহ ﷺ বলেছেন — <em>"রোজা ঢাল স্বরূপ।"</em> এই ঢালকে সুরক্ষিত রাখুন।</p>
+    <ul>
+      <li>একা থাকলে সঙ্গে সঙ্গে কুরআন বা যিকিরে মনোযোগ দিন</li>
+      <li>ফোন ব্যবহার সীমিত করুন — বিশেষত দুপুরের অলস সময়ে</li>
+      <li>যেকোনো ট্রিগারে "আউযুবিল্লাহি মিনাশ শাইতানির রাজিম" পড়ুন</li>
+      <li>ঘুমানোর আগে সূরা আল-ফালাক ও আন-নাস পড়ে শুয়ে পড়ুন</li>
+    </ul>
+  </div>
+
+  <div class="timeline">
+
+    <!-- সেহরি -->
+    <div class="t-row cv-sehri">
+      <div class="t-time"><div class="t-time-label">ভোর<br>৩:৩০</div></div>
+      <div class="t-dot-col"><div class="t-dot" style="background:#1a6b5a;"></div></div>
+      <div class="t-card cv-sehri">
+        <div class="t-activity">🌙 ঘুম থেকে ওঠা <span class="t-tag cv-sehri">তাহাজ্জুদ সময়</span></div>
+        <div class="t-reason">সেহরির আগে উঠুন। ওযু করে দুই রাকাত তাহাজ্জুদ পড়ুন — এই সময়ের দোয়া কবুল হওয়ার বিশেষ মৌসুম।</div>
+        <div class="t-hadith">❝ আমাদের রব প্রতি রাতে শেষ তৃতীয়াংশে দুনিয়ার আকাশে নেমে আসেন এবং বলেন: "কে আমাকে ডাকবে, আমি সাড়া দেব।" ❞ — সহিহ বুখারি</div>
+      </div>
+    </div>
+
+    <!-- সেহরি খাওয়া -->
+    <div class="t-row cv-sehri">
+      <div class="t-time"><div class="t-time-label">ভোর<br>৪:০০</div></div>
+      <div class="t-dot-col"><div class="t-dot" style="background:#2d8a72;"></div></div>
+      <div class="t-card cv-fajr">
+        <div class="t-activity">🍚 সেহরি <span class="t-tag cv-fajr">সুন্নাহ</span></div>
+        <div class="t-reason">খেজুর, পানি, ওটস বা রুটি খান। সেহরি খাওয়া সুন্নাহ — হালকা ও পুষ্টিকর খাবারে সারাদিন শক্তি থাকবে।</div>
+      </div>
+    </div>
+
+    <!-- ফজর -->
+    <div class="t-row cv-fajr">
+      <div class="t-time"><div class="t-time-label">ফজর<br>৪:৩০</div></div>
+      <div class="t-dot-col"><div class="t-dot" style="background:#2d8a72;"></div></div>
+      <div class="t-card cv-fajr">
+        <div class="t-activity">🕌 ফজর নামাজ <span class="t-tag cv-fajr">ফরজ</span></div>
+        <div class="t-reason">ফজর নামাজের পর সূর্যোদয় পর্যন্ত বসে থাকুন — কুরআন তিলাওয়াত করুন বা যিকির করুন। এই সময়ের ফজিলত অতুলনীয়।</div>
+        <div class="t-hadith">❝ যে ব্যক্তি ফজর নামাজ পড়ল, সে আল্লাহর জিম্মায় থাকল। ❞ — সহিহ মুসলিম</div>
+      </div>
+    </div>
+
+    <!-- কুরআন -->
+    <div class="t-row cv-quran">
+      <div class="t-time"><div class="t-time-label">সকাল<br>৬:০০</div></div>
+      <div class="t-dot-col"><div class="t-dot" style="background:#b8860b;"></div></div>
+      <div class="t-card cv-quran">
+        <div class="t-activity">📖 কুরআন তিলাওয়াত <span class="t-tag cv-quran">প্রধান আমল</span></div>
+        <div class="t-reason">রমজানে প্রতিদিন অন্তত ১ পারা তিলাওয়াতের লক্ষ্য রাখুন — মর্ম বুঝে পড়লে হৃদয় পরিষ্কার হয়, কুচিন্তা দূর হয়।</div>
+      </div>
+    </div>
+
+    <!-- কাজ / পড়াশোনা -->
+    <div class="t-row cv-work">
+      <div class="t-time"><div class="t-time-label">সকাল<br>৮:০০</div></div>
+      <div class="t-dot-col"><div class="t-dot" style="background:#4a7c59;"></div></div>
+      <div class="t-card cv-work">
+        <div class="t-activity">💼 কাজ / পড়াশোনা <span class="t-tag cv-work">দুনিয়াবি দায়িত্ব</span></div>
+        <div class="t-reason">রমজান কাজ ছেড়ে দেওয়ার মাস নয়। দায়িত্ব পালনও ইবাদত — মনোযোগ ধরে রাখতে ফোনে অপ্রয়োজনীয় অ্যাপ বন্ধ রাখুন।</div>
+      </div>
+    </div>
+
+    <!-- যোহর -->
+    <div class="t-row cv-asr">
+      <div class="t-time"><div class="t-time-label">দুপুর<br>১২:৩০</div></div>
+      <div class="t-dot-col"><div class="t-dot" style="background:#6d8c3e;"></div></div>
+      <div class="t-card cv-asr">
+        <div class="t-activity">🕌 যোহর + বিশ্রাম <span class="t-tag cv-asr">সতর্ক সময়</span></div>
+        <div class="t-reason">দুপুরের এই অলস মুহূর্তটি সবচেয়ে বিপজ্জনক। নামাজের পর সংক্ষিপ্ত ঘুম দিন — একা বসে স্ক্রলিং করা থেকে বিরত থাকুন।</div>
+      </div>
+    </div>
+
+    <!-- আসর / কুরআন -->
+    <div class="t-row cv-asr">
+      <div class="t-time"><div class="t-time-label">বিকাল<br>৩:৩০</div></div>
+      <div class="t-dot-col"><div class="t-dot" style="background:#6d8c3e;"></div></div>
+      <div class="t-card cv-asr">
+        <div class="t-activity">📖 আসর + কুরআন / যিকির <span class="t-tag cv-asr">ইফতার প্রস্তুতি</span></div>
+        <div class="t-reason">আসরের পর ইফতার পর্যন্ত দোয়ায় থাকুন — এই সময়ের দোয়া রদ হয় না বলে হাদিসে এসেছে। তসবিহ হাতে নিন।</div>
+      </div>
+    </div>
+
+    <!-- ইফতার -->
+    <div class="t-row cv-iftar">
+      <div class="t-time"><div class="t-time-label">সন্ধ্যা<br>৬:১৫</div></div>
+      <div class="t-dot-col"><div class="t-dot" style="background:#c47c1a;"></div></div>
+      <div class="t-card cv-iftar">
+        <div class="t-activity">🌅 ইফতার <span class="t-tag cv-iftar">বিশেষ মুহূর্ত</span></div>
+        <div class="t-reason">খেজুর ও পানি দিয়ে ইফতার করুন। ইফতারের আগের মুহূর্তে মনের গভীর থেকে দোয়া করুন — এটি কবুল হওয়ার সময়।</div>
+        <div class="t-hadith">❝ রোজাদারের ইফতারের সময়ের দোয়া ফিরিয়ে দেওয়া হয় না। ❞ — ইবনে মাজাহ</div>
+      </div>
+    </div>
+
+    <!-- মাগরিব / ইশা -->
+    <div class="t-row cv-isha">
+      <div class="t-time"><div class="t-time-label">রাত<br>৭:৩০</div></div>
+      <div class="t-dot-col"><div class="t-dot" style="background:#1a5a7a;"></div></div>
+      <div class="t-card cv-isha">
+        <div class="t-activity">🕌 মাগরিব + ইশা <span class="t-tag cv-isha">পরিবারের সময়</span></div>
+        <div class="t-reason">ইশার পর পরিবারের সাথে সময় কাটান — ফোন দূরে রাখুন। রাতের এই সময়টুকু কুচিন্তার ট্রিগার সবচেয়ে বেশি। সতর্ক থাকুন।</div>
+      </div>
+    </div>
+
+    <!-- তারাবিহ -->
+    <div class="t-row cv-taraw">
+      <div class="t-time"><div class="t-time-label">রাত<br>৮:৩০</div></div>
+      <div class="t-dot-col"><div class="t-dot" style="background:#4a2d82;"></div></div>
+      <div class="t-card cv-taraw">
+        <div class="t-activity">🕌 তারাবিহ নামাজ <span class="t-tag cv-taraw">রমজানের বিশেষ আমল</span></div>
+        <div class="t-reason">মসজিদে গিয়ে জামাতে তারাবিহ পড়ুন — সমাজের সাথে থাকা একাকীত্ব ও কুচিন্তা দূর করে। ইমামের সাথে পুরো কুরআন শুনুন।</div>
+        <div class="t-hadith">❝ যে ব্যক্তি ঈমান ও সওয়াবের আশায় রমজানে কিয়াম করে, তার পূর্বের গুনাহ ক্ষমা করা হয়। ❞ — সহিহ বুখারি</div>
+      </div>
+    </div>
+
+    <!-- তাহাজ্জুদ / শেষ রাত -->
+    <div class="t-row cv-tahajj">
+      <div class="t-time"><div class="t-time-label">রাত<br>১১:০০</div></div>
+      <div class="t-dot-col"><div class="t-dot" style="background:#8b1a1a;"></div></div>
+      <div class="t-card cv-tahajj">
+        <div class="t-activity">😴 ঘুমিয়ে পড়া <span class="t-tag cv-tahajj">তাহাজ্জুদের প্রস্তুতি</span></div>
+        <div class="t-reason">দ্রুত ঘুমিয়ে পড়ুন যাতে তাহাজ্জুদের জন্য উঠতে পারেন। ঘুমানোর আগে আয়াতুল কুরসি ও তিন কুল পড়ুন — ফোন অবশ্যই দূরে রাখুন।</div>
+      </div>
+    </div>
+
+  </div><!-- /timeline -->
+
+</div>
+</section>
+
+<div class="page-break bg-alt">
+  <span>✦ বিশেষ রমজান আমল ✦</span>
+</div>
+
+<!-- ══════════════════════════════════════
+     AMAL SECTION
+══════════════════════════════════════ -->
+<section id="amal" class="bg-alt">
+<div class="nb-section">
+
+  <div class="section-head">
+    <div class="sh-line"></div>
+    <div class="sh-label">
+      <span class="sh-icon" style="background:rgba(184,134,11,.1);">🌟</span>
+      রমজানের বিশেষ আমল ও নোট
+    </div>
+    <div class="sh-line"></div>
+  </div>
+
+  <!-- দৃষ্টির হিফাজত -->
+  <div class="special-note" style="margin-bottom:20px;">
+    <div class="sn-head">
+      <span class="sn-icon">👁️</span>
+      <span class="sn-title">দৃষ্টির হিফাজত — রমজানে সোশ্যাল মিডিয়া সতর্কতা</span>
+    </div>
+    <p>আল্লাহ বলেছেন: <em>"মুমিনদেরকে বলুন, তারা যেন তাদের দৃষ্টি নত রাখে।" — সূরা আন-নূর, ৩০।</em> রমজানে এই হুকুম আরও বেশি গুরুত্বপূর্ণ।</p>
+    <ul>
+      <li>ফোনে সোশ্যাল মিডিয়া অ্যাপের স্ক্রিন টাইম লিমিট সেট করুন (দৈনিক ৩০ মিনিটের বেশি নয়)</li>
+      <li>Instagram Reels, YouTube Shorts এবং TikTok রমজানে সম্পূর্ণ ডিলিট করুন</li>
+      <li>ব্রাউজারে Content Filter বা DNS ফিল্টার (যেমন CleanBrowsing) চালু করুন</li>
+      <li>রাত ১০টার পর ফোন সম্পূর্ণ বন্ধ করে চার্জে দিন — বিছানার কাছে নয়</li>
+      <li>হঠাৎ কোনো ক্ষতিকর কিছু দেখলে সঙ্গে সঙ্গে সূরা ইখলাস তিনবার পড়ুন</li>
+    </ul>
+  </div>
+
+  <!-- ইতিকাফের মানসিকতা -->
+  <div class="special-note" style="margin-bottom:24px;">
+    <div class="sn-head">
+      <span class="sn-icon">🕌</span>
+      <span class="sn-title">ইতিকাফের মানসিকতা — শেষ ১০ দিনের সংকল্প</span>
+    </div>
+    <p>রাসূলুল্লাহ ﷺ রমজানের শেষ দশ দিন ইতিকাফ করতেন এবং ইবাদতে নিজেকে সম্পূর্ণ নিমজ্জিত করতেন। আমরা মসজিদে ইতিকাফ না করলেও <em>"ডিজিটাল ইতিকাফ"</em> করতে পারি।</p>
+    <ul>
+      <li>শেষ ১০ দিন অপ্রয়োজনীয় সব অ্যাপ ডিলিট করুন বা লক করুন</li>
+      <li>গেমিং, নেটফ্লিক্স, অযথা গল্পগুজব সম্পূর্ণ বন্ধ রাখুন</li>
+      <li>লাইলাতুল কদর খুঁজুন — বিজোড় রাতগুলোয় রাত জেগে ইবাদত করুন</li>
+      <li>প্রতি রাতে ১০০ বার <em>"সুবহানাল্লাহ ওয়া বিহামদিহি"</em> পড়ুন</li>
+    </ul>
+  </div>
+
+  <!-- আমল গ্রিড -->
+  <div class="amal-grid">
+
+    <div class="amal-card">
+      <div class="ac-icon">🤲</div>
+      <h4>তাহাজ্জুদের দোয়া</h4>
+      <p>রাতের শেষ ভাগে আল্লাহর দরবারে হাত তুলুন। আসক্তি থেকে মুক্তির জন্য সরাসরি দোয়া করুন — <em>"হে আল্লাহ, আমার অন্তরকে পবিত্র করুন।"</em> এই মুহূর্তে দোয়া কবুলের বিশেষ সময়।</p>
+    </div>
+
+    <div class="amal-card">
+      <div class="ac-icon">📿</div>
+      <h4>ইস্তিগফার — ক্ষমা প্রার্থনা</h4>
+      <p>প্রতিদিন কমপক্ষে ১০০ বার <em>"আস্তাগফিরুল্লাহ"</em> পড়ুন। রাসূলুল্লাহ ﷺ নিজেও দিনে ৭০ বারের বেশি ইস্তিগফার করতেন। এটি মনকে পরিষ্কার রাখে।</p>
+    </div>
+
+    <div class="amal-card">
+      <div class="ac-icon">📖</div>
+      <h4>কুরআনের সাথে সম্পর্ক</h4>
+      <p>রমজানে কুরআন নাজিল হয়েছে। প্রতিদিন অর্থসহ পড়ুন। যখনই কুচিন্তা আসবে — সঙ্গে সঙ্গে কুরআন খুলুন। কুরআন পড়া শুরু করলে শয়তান পালিয়ে যায়।</p>
+    </div>
+
+    <div class="amal-card">
+      <div class="ac-icon">🏃</div>
+      <h4>শারীরিক সক্রিয়তা</h4>
+      <p>ইফতারের পর হালকা হাঁটুন বা ব্যায়াম করুন। শারীরিক সক্রিয়তা কুচিন্তার ট্রিগার কমায়। তারাবিহ নামাজ নিজেই একটি ভালো শারীরিক আমল।</p>
+    </div>
+
+    <div class="amal-card">
+      <div class="ac-icon">🤝</div>
+      <h4>সামাজিক সংযোগ</h4>
+      <p>একাকীত্ব থেকে সতর্ক থাকুন। মসজিদে যান, বন্ধুদের সাথে ইফতার করুন, পরিবারের সাথে সময় কাটান। সঙ্গ মানুষকে রক্ষা করে।</p>
+    </div>
+
+    <div class="amal-card">
+      <div class="ac-icon">✍️</div>
+      <h4>আত্মজিজ্ঞাসার জার্নাল</h4>
+      <p>প্রতি রাতে ঘুমানোর আগে লিখুন: আজকে কোনো ট্রিগার এসেছিল? কীভাবে সামলেছি? কী ভালো করেছি? এই হিসাব নিজেকে সচেতন রাখে।</p>
+    </div>
+
+  </div>
+
+</div>
+</section>
+
+<div class="page-break">
+  <span>✦ সতর্কতা পৃষ্ঠা ✦</span>
+</div>
+
+<!-- ══════════════════════════════════════
+     WARNING SECTION
+══════════════════════════════════════ -->
+<section id="warning">
+
+  <div class="w-cover">
+    <div class="w-eyebrow">⚠️ রমজানে বিশেষ সতর্কতা</div>
+    <h2>পর্ন আসক্তির ভয়াবহ পরিণতি —<br>১৫টি কারণ, কেন না বলবেন</h2>
+    <div class="w-alert-box">
+      যখনই মন দুর্বল হবে — এই পাতাটি খুলুন এবং নিজেকে জিজ্ঞেস করুন:<br>
+      <strong>"রমজানের এই পবিত্র রাতে আমি কি সত্যিই এই পথে যেতে চাই?"</strong>
+    </div>
+  </div>
+
+  <div class="nb-section">
+    <div class="section-head">
+      <div class="sh-line"></div>
+      <div class="sh-label">
+        <span class="sh-icon" style="background:rgba(139,26,26,.1);">🚫</span>
+        ১৫টি কারণ যা প্রতিবার মনে করিয়ে দেবে
+      </div>
+      <div class="sh-line"></div>
+    </div>
+
+    <!-- প্রথম ৮টি — সবসময় দৃশ্যমান -->
+    <div class="w-grid" id="main-cards">
+
+      <div class="w-card">
+        <div class="w-num">১</div>
+        <div class="w-content-inner">
+          <div class="w-title">🧠 মস্তিষ্কের Reward System ধ্বংস হয়</div>
+          <div class="w-desc">দীর্ঘমেয়াদে এই আসক্তি মস্তিষ্কের স্বাভাবিক Dopamine সিস্টেমে স্থায়ী ক্ষতি করে। <em>স্মৃতিশক্তি, মনোযোগ ও সিদ্ধান্ত নেওয়ার ক্ষমতা কমে যায়।</em> কুরআন মুখস্থ করার ক্ষমতাও হারিয়ে যেতে পারে।</div>
+          <span class="w-ref">📖 আল্লাহ বলেছেন: "নিশ্চয়ই আল্লাহ পরিবর্তন করেন না যতক্ষণ না তারা নিজেরা পরিবর্তন করে।" — সূরা আর-রাদ, ১১</span>
+        </div>
+      </div>
+
+      <div class="w-card">
+        <div class="w-num">২</div>
+        <div class="w-content-inner">
+          <div class="w-title">🌙 রমজানের পবিত্রতা নষ্ট হয়</div>
+          <div class="w-desc">রমজানে এই কাজ করলে রোজার সওয়াব কমে যায়। <em>রাসূলুল্লাহ ﷺ বলেছেন — "অনেকে রোজা রাখে কিন্তু শুধু ক্ষুধা ও পিপাসাই তাদের ভাগ্যে জোটে।"</em></div>
+          <span class="w-ref">📖 হাদিস: সুনানে ইবনে মাজাহ</span>
+        </div>
+      </div>
+
+      <div class="w-card">
+        <div class="w-num">৩</div>
+        <div class="w-content-inner">
+          <div class="w-title">💔 ভবিষ্যৎ দাম্পত্য জীবন বিষাক্ত হয়</div>
+          <div class="w-desc">এই অভ্যাস বাস্তব সঙ্গীর প্রতি স্বাভাবিক অনুভূতি নষ্ট করে এবং <em>অবাস্তব প্রত্যাশা তৈরি করে</em> — যা কোনো বাস্তব মানুষ পূরণ করতে পারবে না। ফলে দাম্পত্য সুখ ধ্বংস হয়।</div>
+        </div>
+      </div>
+
+      <div class="w-card">
+        <div class="w-num">৪</div>
+        <div class="w-content-inner">
+          <div class="w-title">👁️ দৃষ্টির আমানত খেয়ানত হয়</div>
+          <div class="w-desc">আল্লাহ দৃষ্টিকে আমানত হিসেবে দিয়েছেন। <em>ইচ্ছাকৃতভাবে হারাম দেখা কবিরা গুনাহ</em> — আর রমজানে এই গুনাহের ভার আরও বেশি।</div>
+          <span class="w-ref">📖 "মুমিনদেরকে বলুন, তারা যেন তাদের দৃষ্টি নত রাখে।" — সূরা আন-নূর, ৩০</span>
+        </div>
+      </div>
+
+      <div class="w-card">
+        <div class="w-num">৫</div>
+        <div class="w-content-inner">
+          <div class="w-title">⚡ শারীরিক ও মানসিক শক্তি নষ্ট হয়</div>
+          <div class="w-desc">আসক্তি জীবনীশক্তি ও মনের প্রাণশক্তি শেষ করে দেয়। <em>অল্প বয়সেই ক্লান্তি ও অবসন্নতা।</em> তারাবিহ পড়ার শক্তি থাকে না, কুরআন পড়তে মন বসে না।</div>
+        </div>
+      </div>
+
+      <div class="w-card">
+        <div class="w-num">৬</div>
+        <div class="w-content-inner">
+          <div class="w-title">😔 নামাজে মনোযোগ আসে না</div>
+          <div class="w-desc">এই অভ্যাসের পর নামাজে দাঁড়ালে মন অন্যদিকে চলে যায়। <em>আল্লাহর সামনে দাঁড়ানোর লজ্জা</em> এতটাই তীব্র হয় যে ইবাদতের মিষ্টতা সম্পূর্ণ হারিয়ে যায়।</div>
+        </div>
+      </div>
+
+      <div class="w-card">
+        <div class="w-num">৭</div>
+        <div class="w-content-inner">
+          <div class="w-title">⏰ রমজানের অমূল্য সময় নষ্ট হয়</div>
+          <div class="w-desc">রমজানের প্রতিটি মুহূর্তের নেকি বহুগুণ বর্ধিত। <em>এই পবিত্র সময়ে স্ক্রিনে ঘণ্টার পর ঘণ্টা ব্যয় করা মানে হাজার নেকির সুযোগ নষ্ট করা।</em></div>
+        </div>
+      </div>
+
+      <div class="w-card">
+        <div class="w-num">৮</div>
+        <div class="w-content-inner">
+          <div class="w-title">🪦 মৃত্যুর প্রস্তুতি নেই</div>
+          <div class="w-desc">রমজান মৃত্যুর কথা মনে করিয়ে দেওয়ার মাস। <em>যদি এই অবস্থায় মৃত্যু হয়?</em> আল্লাহর সামনে কী জবাব দেব? সেই প্রশ্নটি প্রতিদিন নিজেকে করুন।</div>
+          <span class="w-ref">📖 "প্রতিটি আত্মাকে মৃত্যুর স্বাদ নিতে হবে।" — সূরা আলে-ইমরান, ১৮৫</span>
+        </div>
+      </div>
+
+    </div><!-- /#main-cards -->
+  </div>
+
+  <!-- Collapse Button -->
+  <div class="collapse-wrap">
+    <button class="collapse-btn" id="collapseBtn" onclick="toggleCollapse()">
+      আরও ৭টি কারণ দেখুন <span class="arrow-icon">▼</span>
+    </button>
+  </div>
+
+  <!-- Extra 7 Cards -->
+  <div class="nb-section" style="padding-top:0;">
+    <div class="extra-cards w-grid" id="extraCards">
+
+      <div class="w-card">
+        <div class="w-num">৯</div>
+        <div class="w-content-inner">
+          <div class="w-title">🎓 ক্যারিয়ার ও পড়াশোনার ক্ষতি</div>
+          <div class="w-desc">মস্তিষ্ক সবসময় সহজ তৃপ্তির দিকে ছোটে, ফলে কঠিন পড়ায় মনোযোগ আসে না। <em>পরীক্ষায় ব্যর্থতা ও গুরুত্বপূর্ণ সুযোগ হাতছাড়া</em> হওয়ার সম্ভাবনা বাড়ে।</div>
+        </div>
+      </div>
+
+      <div class="w-card">
+        <div class="w-num">১০</div>
+        <div class="w-content-inner">
+          <div class="w-title">🫀 শরীরের উপর অদৃশ্য চাপ</div>
+          <div class="w-desc">অতিরিক্ত Dopamine Spike হৃদযন্ত্র ও স্নায়ুতন্ত্রের উপর অস্বাভাবিক চাপ সৃষ্টি করে। <em>দীর্ঘমেয়াদে শরীরের স্বাভাবিক কার্যক্ষমতা বাধাগ্রস্ত হয়।</em></div>
+        </div>
+      </div>
+
+      <div class="w-card">
+        <div class="w-num">১১</div>
+        <div class="w-content-inner">
+          <div class="w-title">😤 রাগ, বিরক্তি ও অস্থিরতা বাড়ে</div>
+          <div class="w-desc">Dopamine রিসেপ্টর দুর্বল হলে সাধারণ সুখেও তৃপ্তি আসে না। <em>পরিবারের সাথে মেজাজ খারাপ হয়</em> — রমজানের রহমত ও শান্তি থেকে বঞ্চিত হওয়া যায়।</div>
+        </div>
+      </div>
+
+      <div class="w-card">
+        <div class="w-num">১২</div>
+        <div class="w-content-inner">
+          <div class="w-title">💸 অলসতা ও অর্থনৈতিক ক্ষতি</div>
+          <div class="w-desc">আসক্তি মানুষকে উদ্যমহীন করে তোলে। পরিবার গড়ার স্বপ্ন দেখেন? <em>সেই স্বপ্নের জন্য পরিশ্রম করার শক্তি এই আসক্তি ধীরে ধীরে নষ্ট করে।</em></div>
+        </div>
+      </div>
+
+      <div class="w-card">
+        <div class="w-num">১৩</div>
+        <div class="w-content-inner">
+          <div class="w-title">🧒 ভবিষ্যৎ পরিবারের স্বপ্ন ঝুঁকিতে</div>
+          <div class="w-desc">গবেষণায় ইঙ্গিত আছে যে দীর্ঘমেয়াদী আসক্তি প্রজনন স্বাস্থ্যে প্রভাব ফেলতে পারে। <em>যে সন্তানের মুখে হাসি দেখতে চান — আজকের এই পথ সেই স্বপ্নের বিপরীতে।</em></div>
+        </div>
+      </div>
+
+      <div class="w-card">
+        <div class="w-num">১৪</div>
+        <div class="w-content-inner">
+          <div class="w-title">🕌 আল্লাহর সাথে দূরত্ব বাড়ে</div>
+          <div class="w-desc">প্রতিবারের পর দোয়ায় হাত তুলতে লজ্জা লাগে, কুরআন খুলতে সাহস পাওয়া যায় না। <em>রমজানের মাগফিরাতের সুযোগ থেকে বঞ্চিত হওয়ার ভয়াবহ ঝুঁকি আছে।</em></div>
+          <span class="w-ref">📖 "নিশ্চয়ই আল্লাহ তাওবাকারীদের ভালোবাসেন।" — সূরা আল-বাকারাহ, ২২২</span>
+        </div>
+      </div>
+
+      <div class="w-card">
+        <div class="w-num">১৫</div>
+        <div class="w-content-inner">
+          <div class="w-title">🪞 আত্মসম্মান সম্পূর্ণ শূন্যে নামে</div>
+          <div class="w-desc">বারবার প্রতিজ্ঞা ভাঙার পর নিজের উপর আস্থা শেষ হয়ে যায়। <em>কিন্তু মনে রাখবেন — রমজান হলো সেই মাস যেখানে আল্লাহ সবচেয়ে বেশি ক্ষমা করেন।</em> তাওবা করুন, আবার উঠে দাঁড়ান।</div>
+          <span class="w-ref">📖 "হে আমার বান্দারা যারা নিজেদের উপর অত্যাচার করেছ, আল্লাহর রহমত থেকে নিরাশ হয়ো না।" — সূরা আয-যুমার, ৫৩</span>
+        </div>
+      </div>
+
+    </div><!-- /.extra-cards -->
+  </div>
+
+</section>
+
+<div class="page-break bg-alt">
+  <span>✦ মুনাজাত ও সংকল্প ✦</span>
+</div>
+
+<!-- ══════════════════════════════════════
+     PLEDGE SECTION
+══════════════════════════════════════ -->
+<section id="pledge" class="bg-alt">
+<div class="pledge-section">
+
+  <div class="section-head" style="margin-bottom:24px;">
+    <div class="sh-line" style="background:rgba(0,0,0,.1);"></div>
+    <div class="sh-label">
+      <span class="sh-icon" style="background:rgba(26,107,90,.1);">🤲</span>
+      রমজানের মুনাজাত ও সংকল্প
+    </div>
+    <div class="sh-line" style="background:rgba(0,0,0,.1);"></div>
+  </div>
+
+  <div class="pledge-box">
+    <div class="pledge-dua">رَبَّنَا ظَلَمۡنَاۤ أَنفُسَنَا</div>
+    <div class="pledge-dua-bn">"হে আমাদের রব, আমরা নিজেদের উপর অন্যায় করেছি।" — সূরা আল-আ'রাফ, ২৩</div>
+
+    <div class="pledge-icon">🛡️</div>
+    <div class="pledge-title">আমার রমজানের সংকল্প</div>
+    <div class="pledge-line"></div>
+    <div class="pledge-text">
+      "হে আল্লাহ, আমি স্বীকার করছি আমি দুর্বল।<br>
+      কিন্তু আপনার <strong>রহমত</strong> থেকে আমি নিরাশ নই।<br>
+      এই রমজানে আমি আমার <strong>অন্তরকে পবিত্র</strong> করতে চাই।<br>
+      আমাকে শক্তি দিন, আমার <strong>দৃষ্টিকে হিফাজত</strong> করুন।<br>
+      আমি আজ থেকে এই অন্ধকার পথ <strong>ছেড়ে দিচ্ছি</strong> —<br>
+      শুধুমাত্র আপনার সন্তুষ্টির জন্য।"
+    </div>
+    <button class="cta-btn">🌙 রমজানের নতুন শুরু — আজ থেকেই</button>
+  </div>
+
+</div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p>🌙 <strong>রমজান আত্মশুদ্ধি নোটবুক ১৪৪৬</strong><br>
+  তথ্যভিত্তিক সচেতনতা ও ইসলামিক দৃষ্টিকোণ থেকে তৈরি।<br>
+  কুরআন ও হাদিসের রেফারেন্স শিক্ষামূলক উদ্দেশ্যে সংযুক্ত।</p>
+</footer>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+/* Progress Bar */
+window.addEventListener('scroll', () => {
+  const st = document.documentElement.scrollTop;
+  const sh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progress-bar').style.width = (st / sh * 100) + '%';
+});
+
+/* Scroll Reveal */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const delay = parseInt(entry.target.dataset.delay || 0);
+      setTimeout(() => entry.target.classList.add('visible'), delay);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.t-row, .w-card, .amal-card').forEach((el, i) => {
+  el.dataset.delay = (i % 5) * 90;
+  revealObserver.observe(el);
+});
+
+/* Nav Active */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-tabs a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.id; });
+  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+});
+
+/* Collapse */
+function toggleCollapse() {
+  const btn = document.getElementById('collapseBtn');
+  const cards = document.getElementById('extraCards');
+  const open = cards.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  btn.innerHTML = open
+    ? 'সংক্ষিপ্ত করুন <span class="arrow-icon">▼</span>'
+    : 'আরও ৭টি কারণ দেখুন <span class="arrow-icon">▼</span>';
+  if (open) {
+    setTimeout(() => {
+      cards.querySelectorAll('.w-card').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 100);
+      });
+    }, 50);
+  }
+}
+</script>
+</body>
+</html>
